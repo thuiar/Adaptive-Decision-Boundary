@@ -8,7 +8,7 @@ seeds = [str(i) for i in range(1)]
 datasets = ['oos','banking','stackoverflow']
 known_cls_ratios = ['0.75']
 labeled_ratios = ['1.0']
-methods = ['Ours']
+methods = ['ADB']
 #################single parameter###############3
 gpu_id = '1'
 num_train_epochs = '100'
