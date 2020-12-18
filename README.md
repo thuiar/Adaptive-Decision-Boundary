@@ -29,9 +29,9 @@ The model architecture of DeepAligned:
 
 ##  Results
 ### Main experiments
-| Known_Intent_Ratio | Dataset   |       | CLINC |       |       |BANKING|       | 
-|:--------:|:--------:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-||| Method   |  NMI  |  ARI  |  ACC  |  NMI  |  ARI  |  ACC  | 
+| KIR | Dataset   |       | CLINC |       |       |BANKING|       | 
+||:--------:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|| Method   |  NMI  |  ARI  |  ACC  |  NMI  |  ARI  |  ACC  | 
 || KM       | 70.89 | 26.86 | 45.06 | 54.57 | 12.18 | 29.55 | 
 || AG       | 73.07 | 27.70 | 44.03 | 57.07 | 13.31 | 31.58 | 
 |25%| SAE-KM   | 73.13 | 29.95 | 46.75 | 63.79 | 22.85 | 38.92 | 
