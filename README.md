@@ -29,22 +29,25 @@ The model architecture of DeepAligned:
 
 ##  Results
 ### Main experiments
-| KIR | Dataset   |       | CLINC |       |       |BANKING|       | 
-||:--------:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|| Method   |  NMI  |  ARI  |  ACC  |  NMI  |  ARI  |  ACC  | 
-|| KM       | 70.89 | 26.86 | 45.06 | 54.57 | 12.18 | 29.55 | 
-|| AG       | 73.07 | 27.70 | 44.03 | 57.07 | 13.31 | 31.58 | 
-|25%| SAE-KM   | 73.13 | 29.95 | 46.75 | 63.79 | 22.85 | 38.92 | 
-|| DEC      | 74.83 | 27.46 | 46.89 | 67.78 | 27.21 | 41.29 | 
-|| DCN      | 75.66 | 31.15 | 49.29 | 67.54 | 26.81 | 41.99 | 
-|| DAC      | 78.40 | 40.49 | 55.94 | 47.35 | 14.24 | 27.41 | 
-|| DeepCluster  | 65.58 | 19.11 | 35.70 | 41.77 | 8.95  | 20.69 |
-|50%| PCK-means| 68.70 | 35.40 | 54.61 | 48.22 | 16.24 | 32.66 | 
-|| BERT-KCL | 86.82 | 58.79 | 68.86 | 75.21 | 46.72 | 60.15 | 
-|| BERT-MCL | 87.72 | 59.92 | 69.66 | 75.68 | 47.43 | 61.14 | 
-|75%| CDAC+ | 86.65 | 54.33 | 69.89 | 72.25 | 40.97 | 53.83 | 
-|| BERT-DTC | 90.54 | 65.02 | 74.15 | 76.55 | 44.70 | 56.51 | 
-|| DeepAligned   | __93.89__ | __79.75__ | __86.49__ | __79.56__ | __53.64__ | __64.90__ | 
+
+| Ratio | | BANKING     |  | OOS      |  |  StackOverflow     |  |  
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | Methods | Accuracy | F1-score | Accuracy  |F1-score  | Accuracy | F1-score | 
+|25%| MSP      |43.67| 50.09 |47.02  | 47.62 | 28.67 | 37.85 | 
+|| DOC      | 56.99 | 58.03 | 74.97 | 66.37 | 42.74 |47.73 | 
+|| OpenMax  | 49.94 | 54.14 | 68.50 | 61.99 | 40.28 | 45.98|  
+|| DeepUnk  | 64.21 | 61.36 | 81.43 | 71.16 | 47.84 | 52.05 | 
+|| ADB     | __78.85__ | __71.62__ | __87.59__ | __77.19__ | __86.72__ |__80.83__|
+|50%| MSP | 59.73 | 71.18 | 62.96 | 70.41 | 52.42 | 63.01 | 
+|| DOC  | 64.81 | 73.12 | 77.16 | 78.26 | 52.53  | 62.84 | 
+|| OpenMax | 65.31 | 74.24 | 80.11 | 80.56 | 60.35 | 68.18 |
+|| DeepUnk | 72.73 | 77.53 | 83.35 | 82.16 | 58.98 | 68.01 |
+|| ADB | __78.86__ | __80.90__ | __86.54__ | __85.05__ | __86.40__ | __85.83__ |
+|75% | MSP | 75.89 | 83.60 | 74.07 | 82.38 | 72.17 | 77.95 |
+|| DOC | 76.77 | 83.34 | 78.73 | 83.59 | 68.91 | 75.06 |
+|| OpenMax | 77.45 | 84.07 | 76.80 | 73.16 | 74.42 |79.78 |
+|| DeepUnk |  78.52 | 84.31 | 83.71 | 86.23 | 72.33 | 78.28 | 
+|| ADB  |  __81.08__ | __85.96__ | __86.32__ | __88.53__ | __82.78__ |__85.99__ | 
 
 ### Ablation study
 | Method   |       | CLINC |       |       |BANKING|       |   
@@ -55,7 +58,7 @@ The model architecture of DeepAligned:
 | Pre + Reinit      | 82.90 | 45.67 | 55.80 | 68.12 | 31.56 | 41.32 | 
 | Pre + Align   | __93.89__ | __79.75__ | __86.49__ | __79.56__ | __53.64__ | __64.90__ | 
 
-This paper is to appear at the [Thirty-Fifth AAAI Conference on Artificial Intelligence](https://aaai.org/Conferences/AAAI-21/) (AAAI2021). We release an arXiv version [here](https://arxiv.org/pdf/2012.08987.pdf).
+This paper is to appear at the [Thirty-Fifth AAAI Conference on Artificial Intelligence](https://aaai.org/Conferences/AAAI-21/) (AAAI2021). An arXiv version is released [here](https://arxiv.org/pdf/2012.08987.pdf).
 
 If you are instrested in this work, please **star** this repository and cite by. 
 ```
