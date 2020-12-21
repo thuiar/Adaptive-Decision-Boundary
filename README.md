@@ -3,7 +3,7 @@
 A method to automatically learn the decision boundary for open world classification.
 
 ## Introduction
-This repository provides the PyTorch implementation of the research paper [Deep Open Intent Classification with Adaptive Decision Boundary](**Accepted by [AAAI2021](https://aaai.org/Conferences/AAAI-21/)**).
+This repository provides the PyTorch implementation of the research paper [Deep Open Intent Classification with Adaptive Decision Boundary](https://arxiv.org/pdf/2012.10209.pdf)(**Accepted by [AAAI2021](https://aaai.org/Conferences/AAAI-21/)**).
 
 ## Usage
 Install all required library
@@ -14,9 +14,8 @@ Get the pre-trained [BERT](https://storage.googleapis.com/bert_models/2018_10_18
 
 Run the experiments by: 
 ```
-python run_all.py
+sh scripts/run.sh
 ```
-
 Selected Parameters
 ```
 task_name: clinc | banking | oos
@@ -50,23 +49,35 @@ The model architecture of DeepAligned:
 || ADB  |  __81.08__ | __85.96__ | __86.32__ | __88.53__ | __82.78__ |__85.99__ | 
 
 ### Ablation study
-| Method   |       | CLINC |       |       |BANKING|       |   
-|:--------:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| Method   |  NMI  |  ARI  |  ACC  |  NMI  |  ARI  |  ACC  |
-| w/o Pre + Reinit      | 57.80 | 9.63 | 23.02 | 34.34 | 4.49 | 13.67 | 
-| w/o Pre + Align   | 62.53 | 14.10 | 28.63 | 36.91 | 5.23 | 15.42 | 
-| Pre + Reinit      | 82.90 | 45.67 | 55.80 | 68.12 | 31.56 | 41.32 | 
-| Pre + Align   | __93.89__ | __79.75__ | __86.49__ | __79.56__ | __53.64__ | __64.90__ | 
 
-This paper is to appear at the [Thirty-Fifth AAAI Conference on Artificial Intelligence](https://aaai.org/Conferences/AAAI-21/) (AAAI2021). An arXiv version is released [here](https://arxiv.org/pdf/2012.08987.pdf).
+| Ratio | | BANKING     |  | OOS      |  |  StackOverflow     |  |  
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | Methods | Unknown | Known | Unknown | Known | Unknown | Known | 
+|25%| MSP      |41.43| 50.55 |50.88  | 47.53 | 13.03 | 42.82 | 
+|| DOC      | 61.42 | 57.85 | 81.98 | 65.96 | 41.25 |49.02 | 
+|| OpenMax  | 51.32 | 54.28 | 75.76 | 61.62 | 36.41 | 47.89|  
+|| DeepUnk  | 70.44 | 60.88 | 87.33 | 70.73 | 49.29 | 52.60 | 
+|| ADB     | __84.56__ | __70.94__ | __91.84__ | __76.80__ | __90.88__ |__78.82__|
+|50%| MSP | 41.19 | 71.97 | 57.62 | 70.58 | 23.99 | 66.91 | 
+|| DOC  | 55.14 | 73.59 | 79.00 | 78.25 | 25.44  | 66.58 | 
+|| OpenMax | 54.33 | 74.76 | 81.89 | 80.54 | 45.00 | 70.49 |
+|| DeepUnk | 69.53 | 77.74 | 85.85 | 82.11 | 43.01 | 70.51 |
+|| ADB | __78.44__ | __80.96__ | __88.65__ | __85.00__ | __87.34__ | __85.68__ |
+|75% | MSP | 39.23 | 84.36 | 59.08 | 82.59 | 33.96 | 80.88 |
+|| DOC | 50.60 | 83.91 | 72.87 | 83.69 | 16.76 | 78.95 |
+|| OpenMax | 50.85 | 84.64 | 76.35 | 73.13 | 44.87 | 82.11 |
+|| DeepUnk |  58.54 | 84.75 | 81.15 | 86.27 | 37.59 | 81.00 | 
+|| ADB  |  __66.47__ | __86.29__ | __83.92__ | __88.58__ | __73.86__ |__86.80__ | 
+
+This paper is to appear at the [Thirty-Fifth AAAI Conference on Artificial Intelligence](https://aaai.org/Conferences/AAAI-21/) (AAAI2021). An arXiv version is released [here](https://arxiv.org/pdf/2012.10209.pdf).
 
 If you are instrested in this work, please **star** this repository and cite by. 
 ```
-@article{zhang2020discovering,
-      title={Discovering New Intents with Deep Aligned Clustering}, 
-      author={Hanlei Zhang and Hua Xu and Ting-En Lin and Rui Lv},
+@article{zhang2020deep,
+      title={Deep Open Intent Classification with Adaptive Decision Boundary}, 
+      author={Hanlei Zhang and Hua Xu and Ting-En Lin},
       year={2020},
-      journal={arXiv preprint arXiv:2012.08987},
+      journal={arXiv preprint arXiv:2012.10209},
 }
 ```
 ### Acknowledgments
