@@ -3,7 +3,7 @@
 A method to automatically learn the decision boundary for open world classification.
 
 ## Introduction
-This repository provides the PyTorch implementation of the research paper [Deep Open Intent Classification with Adaptive Decision Boundary](https://arxiv.org/pdf/2012.10209.pdf)(**Accepted by [AAAI2021](https://aaai.org/Conferences/AAAI-21/)**).
+This repository provides the PyTorch implementation of the research paper [Deep Open Intent Classification with Adaptive Decision Boundary](https://arxiv.org/pdf/2012.10209.pdf) (**Accepted by [AAAI2021](https://aaai.org/Conferences/AAAI-21/)**).
 
 ## Usage
 <!--
