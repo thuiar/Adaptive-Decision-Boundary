@@ -6,10 +6,12 @@ A method to automatically learn the decision boundary for open world classificat
 This repository provides the PyTorch implementation of the research paper [Deep Open Intent Classification with Adaptive Decision Boundary](https://arxiv.org/pdf/2012.10209.pdf)(**Accepted by [AAAI2021](https://aaai.org/Conferences/AAAI-21/)**).
 
 ## Usage
+<!--
 Install all required library
 ```
 pip install -r requirements.txt
 ```
+-->
 Get the pre-trained [BERT](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip) model and convert it into [Pytorch](https://huggingface.co/transformers/converting_tensorflow_models.html) 
 
 Run the experiments by: 
