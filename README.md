@@ -20,7 +20,7 @@ sh scripts/run.sh
 ```
 Selected Parameters
 ```
-task_name: clinc | banking | oos
+dataset: clinc | banking | oos
 known_class_ratio: 0.25 | 0.5 | 0.75 (default)
 labeled_ratio: 0.2 | 0.4 | 0.6 | 0.8 | 1.0 
 ```
