@@ -1,28 +1,28 @@
 # Deep Open Intent Classification with Adaptive Decision Boundary
 
-A method to automatically learn the decision boundary for open world classification.
+A method to automatically learn the adaptive decision boundary (ADB) for open world classification.
 
 ## Introduction
 This repository provides the PyTorch implementation of the research paper [Deep Open Intent Classification with Adaptive Decision Boundary](https://arxiv.org/pdf/2012.10209.pdf) (**Accepted by [AAAI2021](https://aaai.org/Conferences/AAAI-21/)**).
 
 ## Usage
 <!--
-Install all required library
+Install all required library.
 ```
 pip install -r requirements.txt
 ```
 -->
-Get the pre-trained [BERT](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip) model and convert it into [Pytorch](https://huggingface.co/transformers/converting_tensorflow_models.html) 
+Get the pre-trained [BERT](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip) model and convert it into [Pytorch](https://huggingface.co/transformers/converting_tensorflow_models.html).
 
 Run the experiments by: 
 ```
 sh scripts/run.sh
 ```
-Selected Parameters
+Selected Parameters:
 ```
 dataset: clinc | banking | oos
 known_class_ratio: 0.25 | 0.5 | 0.75 (default)
-labeled_ratio: 0.2 | 0.4 | 0.6 | 0.8 | 1.0 
+labeled_ratio: 0.2 | 0.4 | 0.6 | 0.8 | 1.0 (default) 
 ```
 The model architecture of ADB:
 ![Model](model.png "Model")
@@ -73,7 +73,7 @@ The model architecture of ADB:
 
 This paper is to appear at the [Thirty-Fifth AAAI Conference on Artificial Intelligence](https://aaai.org/Conferences/AAAI-21/) (AAAI2021). An arXiv version is released [here](https://arxiv.org/pdf/2012.10209.pdf).
 
-If you are instrested in this work, please **star** this repository and **cite** by. 
+If you are instrested in this work, please **star** this repository and **cite** by: 
 ```
 @article{zhang2020deep,
       title={Deep Open Intent Classification with Adaptive Decision Boundary}, 
