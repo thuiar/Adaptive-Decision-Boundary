@@ -84,7 +84,8 @@ class PretrainModelManager:
                     break
                 
         self.model = best_model
-        self.save_model(args)
+        if args.save_model:
+            self.save_model(args)
 
     def get_optimizer(self, args):
         param_optimizer = list(self.model.named_parameters())

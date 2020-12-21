@@ -10,15 +10,18 @@ class Data:
     
     def __init__(self, args):
         set_seed(args.seed)
+        max_seq_lengths = {'oos':30, 'stackoverflow':45,'banking':55}
+        args.max_seq_length = max_seq_lengths[args.dataset]
+
         processor = DatasetProcessor()
-        self.data_dir = os.path.join(args.data_dir, args.task_name)
+        self.data_dir = os.path.join(args.data_dir, args.dataset)
         self.all_label_list = processor.get_labels(self.data_dir)
         self.n_known_cls = round(len(self.all_label_list) * args.known_cls_ratio)
         self.known_label_list = list(np.random.choice(np.array(self.all_label_list), self.n_known_cls, replace=False))
 
         self.num_labels = len(self.known_label_list)
         
-        if args.task_name == 'oos':
+        if args.dataset == 'oos':
             self.unseen_token = 'oos'
         else:
             self.unseen_token = '<UNK>'
