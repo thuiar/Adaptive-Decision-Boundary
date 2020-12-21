@@ -5,7 +5,7 @@ def init_model():
     
     ################fixed parameters###########################
     
-    parser.add_argument("--data_dir", default='/home/zhl/AAAI2021/paper2/data', type=str,
+    parser.add_argument("--data_dir", default='data', type=str,
                         help="The input data dir. Should contain the .csv files (or other data files) for the task.")
     
     parser.add_argument("--save_results_path", type=str, default='outputs', help="the path to save results")
@@ -13,13 +13,13 @@ def init_model():
     parser.add_argument("--pretrain_dir", default='pretrain_models', type=str, 
                         help="The output directory where the model predictions and checkpoints will be written.") 
     
-    parser.add_argument("--bert_model", default="/home/zhl/pretrained_models/uncased_L-12_H-768_A-12", type=str)
+    parser.add_argument("--bert_model", default="/pretrained_models/uncased_L-12_H-768_A-12", type=str, help="The path for the pre-trained bert model.")
     
-    parser.add_argument("--max_seq_length", default=20, type=int,
+    parser.add_argument("--max_seq_length", default=None, type=int,
                         help="The maximum total input sequence length after tokenization. Sequences longer "
                              "than this will be truncated, sequences shorter will be padded.")
 
-    parser.add_argument("--feat_dim", default=768, type=int)
+    parser.add_argument("--feat_dim", default=768, type=int, help="The feature dimension.")
 
     parser.add_argument("--warmup_proportion", default=0.1, type=float)
 
@@ -30,7 +30,7 @@ def init_model():
     parser.add_argument("--save_results", action="store_true", help="save test results")
 
     parser.add_argument("--dataset", default=None, type=str, required=True,
-                        help="The name of the task to train selected")
+                        help="The name of the dataset to train selected")
     
     parser.add_argument("--known_cls_ratio", default=0.75, type=float, required=True, help="The number of known classes")
     
