@@ -71,15 +71,13 @@ The model architecture of ADB:
 || DeepUnk |  58.54 | 84.75 | 81.15 | 86.27 | 37.59 | 81.00 | 
 || ADB  |  __66.47__ | __86.29__ | __83.92__ | __88.58__ | __73.86__ |__86.80__ | 
 
-This paper is to appear at the [Thirty-Fifth AAAI Conference on Artificial Intelligence](https://aaai.org/Conferences/AAAI-21/) (AAAI2021). An arXiv version is released [here](https://arxiv.org/pdf/2012.10209.pdf).
-
 If you are instrested and want to use the codes in this work, please **star** this repository and **cite** by:
 ```
-@article{zhang2020deep,
+@inproceedings{zhang2020deep,
       title={Deep Open Intent Classification with Adaptive Decision Boundary}, 
       author={Hanlei Zhang and Hua Xu and Ting-En Lin},
-      year={2020},
-      journal={arXiv preprint arXiv:2012.10209},
+      booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+      year={2021},
 }
 ```
 ### Acknowledgments
