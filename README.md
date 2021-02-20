@@ -54,7 +54,7 @@ The model architecture of ADB:
 
 | Ratio | | BANKING     |  | OOS      |  |  StackOverflow     |  |  
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|  | Methods | Unknown | Known | Unknown | Known | Unknown | Known | 
+|  | Methods | Open | Known | Open | Known | Open | Known | 
 |25%| MSP      |41.43| 50.55 |50.88  | 47.53 | 13.03 | 42.82 | 
 || DOC      | 61.42 | 57.85 | 81.98 | 65.96 | 41.25 |49.02 | 
 || OpenMax  | 51.32 | 54.28 | 75.76 | 61.62 | 36.41 | 47.89|  
