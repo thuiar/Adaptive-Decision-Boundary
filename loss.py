@@ -11,6 +11,7 @@ def euclidean_metric(a, b):
 class BoundaryLoss(nn.Module):
 
     def __init__(self, num_labels=10, feat_dim=2):
+        
         super(BoundaryLoss, self).__init__()
         self.num_labels = num_labels
         self.feat_dim = feat_dim

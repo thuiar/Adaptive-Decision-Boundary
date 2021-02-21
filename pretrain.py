@@ -5,6 +5,7 @@ from util import *
 class PretrainModelManager:
     
     def __init__(self, args, data):
+
         self.model = BertForModel.from_pretrained(args.bert_model, cache_dir = "", num_labels = data.num_labels)
         if args.freeze_bert_parameters:
             for name, param in self.model.bert.named_parameters():  
@@ -26,6 +27,7 @@ class PretrainModelManager:
         self.best_eval_score = 0
 
     def eval(self, args, data):
+        
         self.model.eval()
 
         total_labels = torch.empty(0,dtype=torch.long).to(self.device)
@@ -47,7 +49,8 @@ class PretrainModelManager:
         return acc
 
 
-    def train(self, args, data):     
+    def train(self, args, data):    
+
         wait = 0
         best_model = None
         for epoch in trange(int(args.num_train_epochs), desc="Epoch"):
@@ -88,6 +91,7 @@ class PretrainModelManager:
             self.save_model(args)
 
     def get_optimizer(self, args):
+
         param_optimizer = list(self.model.named_parameters())
         no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
         optimizer_grouped_parameters = [
@@ -101,9 +105,11 @@ class PretrainModelManager:
         return optimizer
     
     def save_model(self, args):
+
         if not os.path.exists(args.pretrain_dir):
             os.makedirs(args.pretrain_dir)
         self.save_model = self.model.module if hasattr(self.model, 'module') else self.model  
+
         model_file = os.path.join(args.pretrain_dir, WEIGHTS_NAME)
         model_config_file = os.path.join(args.pretrain_dir, CONFIG_NAME)
         torch.save(self.save_model.state_dict(), model_file)
