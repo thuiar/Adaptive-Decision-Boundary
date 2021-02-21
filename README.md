@@ -86,7 +86,7 @@ The model architecture of ADB:
 “Open” and “Known” denote the macro f1-score over open class and known classes respectively.
 
 
-If you are instrested in this work or want to use the codes in this repository, please **star** this repository and **cite** by:
+If you are insterested in this work or want to use the codes in this repository, please **star** this repository and **cite** by:
 ```
 @inproceedings{zhang2020deep,
       title={Deep Open Intent Classification with Adaptive Decision Boundary}, 
