@@ -1,6 +1,6 @@
-from models import *
+from model import *
 from dataloader import *
-from utils import *
+from util import *
 
 class PretrainModelManager:
     

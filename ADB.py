@@ -1,9 +1,9 @@
-from models import *
-from init_parameters import *
+from model import *
+from init_parameter import *
 from dataloader import *
 from pretrain import *
-from utils import *
-from losses import *
+from util import *
+from loss import *
 
 TIMESTAMP = "{0:%Y-%m-%dT%H-%M-%S/}".format(datetime.now())
 train_log_dir = 'logs/train/' + TIMESTAMP
@@ -71,14 +71,17 @@ class ModelManager:
         self.true_labels = list([data.label_list[idx] for idx in y_true])
 
         if mode == 'eval':
-            close_pro = round((len(y_pred[y_pred != -1]) / len(y_pred))*100, 2)
-            return close_pro
+            cm = confusion_matrix(y_true, y_pred)
+            eval_score = F_measure(cm)['F1-score']
+            return eval_score
 
         elif mode == 'test':
+            
             cm = confusion_matrix(y_true,y_pred)
             results = F_measure(cm)
             acc = round(accuracy_score(y_true, y_pred) * 100, 2)
-            results['Acc'] = acc
+            results['Accuracy'] = acc
+
             self.test_results = results
             self.save_results(args)
 
@@ -123,7 +126,7 @@ class ModelManager:
             eval_score = self.evaluation(args, data, mode="eval")
             print('eval_score',eval_score)
             
-            if eval_score > self.best_eval_score:
+            if eval_score >= self.best_eval_score:
                 best_model = copy.deepcopy(self.model)
                 wait = 0
                 self.best_eval_score = eval_score
@@ -168,15 +171,16 @@ class ModelManager:
         if not os.path.exists(args.save_results_path):
             os.makedirs(args.save_results_path)
 
-        #save centroids, delta_points, predictions
-
-        var = [args.dataset, args.method, args.known_cls_ratio, args.labeled_ratio, args.seed]
-        names = ['dataset', 'method', 'known_cls_ratio', 'labeled_ratio', 'seed']
+        var = [args.dataset, args.known_cls_ratio, args.labeled_ratio, args.seed]
+        names = ['dataset', 'known_cls_ratio', 'labeled_ratio', 'seed']
         vars_dict = {k:v for k,v in zip(names, var) }
         results = dict(self.test_results,**vars_dict)
         keys = list(results.keys())
         values = list(results.values())
         
+        np.save(os.path.join(args.save_results_path, 'centroids.npy'), self.centroids.detach().cpu().numpy())
+        np.save(os.path.join(args.save_results_path, 'deltas.npy'), self.delta.detach().cpu().numpy())
+
         file_name = 'results'  + '.csv'
         results_path = os.path.join(args.save_results_path, file_name)
         
@@ -198,19 +202,26 @@ class ModelManager:
 
 if __name__ == '__main__':
     
+    print('Data and Parameters Initialization...')
     parser = init_model()
     args = parser.parse_args()
     data = Data(args)
 
+    print('Pre-training begin...')
     manager_p = PretrainModelManager(args, data)
     manager_p.train(args, data)
+    print('Pre-training finished!')
     
     manager = ModelManager(args, data, manager_p.model)
+    print('Training begin...')
     manager.train(args, data)
-    manager.evaluation(args, data, mode="test")  
-
-    # debug(data, manager_p, manager, args)
     print('Training finished!')
+    
+    print('Evaluation begin...')
+    manager.evaluation(args, data, mode="test")  
+    print('Evaluation finished!')
+    
+    # debug(data, manager_p, manager, args)
   
 
     

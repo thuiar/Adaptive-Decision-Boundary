@@ -1,4 +1,4 @@
-from utils import *
+from util import *
 
 def euclidean_metric(a, b):
     n = a.shape[0]
@@ -28,9 +28,8 @@ class BoundaryLoss(nn.Module):
         
         euc_dis = torch.norm(x - c,2, 1).view(-1)
         pos_mask = (euc_dis > d).type(torch.cuda.FloatTensor)
-#         print(pos_mask)
         neg_mask = (euc_dis < d).type(torch.cuda.FloatTensor)
-#         print(neg_mask)
+
         pos_loss = (euc_dis - d) * pos_mask
         neg_loss = (d - euc_dis) * neg_mask
         loss = pos_loss.mean() + neg_loss.mean()

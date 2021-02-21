@@ -1,39 +1,49 @@
-# Deep Open Intent Classification with Adaptive Decision Boundary
+## Deep Open Intent Classification with Adaptive Decision Boundary
 
 A method to automatically learn the adaptive decision boundary (ADB) for open world classification.
 
-## Introduction
-This repository provides the PyTorch implementation of the research paper [Deep Open Intent Classification with Adaptive Decision Boundary](https://arxiv.org/pdf/2012.10209.pdf) (**Accepted by [AAAI2021](https://aaai.org/Conferences/AAAI-21/)**).
+### Introduction
+This repository provides the official PyTorch implementation of the research paper [Deep Open Intent Classification with Adaptive Decision Boundary](https://arxiv.org/pdf/2012.10209.pdf) (**Accepted by [AAAI2021](https://aaai.org/Conferences/AAAI-21/)**).
 
-## Usage
-<!--
-Install all required library.
+### Dependencies 
+
+We use anaconda to create python environment.
+```
+conda create --name python=3.6
+```
+Install all required library
 ```
 pip install -r requirements.txt
 ```
--->
+
+### BERT Preparation
 Get the pre-trained [BERT](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip) model and convert it into [Pytorch](https://huggingface.co/transformers/converting_tensorflow_models.html).
 
+Set the path of the uncased-bert model (Hint: parameter "bert_model" in init_parameter.py)
+
+### Usage
 Run the experiments by: 
 ```
 sh scripts/run.sh
 ```
-Selected Parameters:
+You can change the parameters in the script. The selected parameters are as follows:
 ```
-dataset: clinc | banking | oos
+dataset: clinc | banking | oos (default)
 known_class_ratio: 0.25 | 0.5 | 0.75 (default)
 labeled_ratio: 0.2 | 0.4 | 0.6 | 0.8 | 1.0 (default) 
 ```
+
+### Model
 The model architecture of ADB:
-![Model](model.png "Model")
+![Model](figs/model.png "Model")
 
 
-##  Results
-### Main experiments
+###  Results
+#### Overall Performance
 
-| Ratio | | BANKING     |  | OOS      |  |  StackOverflow     |  |  
+| | | BANKING     |  | OOS      |  |  StackOverflow     |  |  
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|  | Methods | Accuracy | F1-score | Accuracy  |F1-score  | Accuracy | F1-score | 
+| KIR* | Methods | Accuracy | F1-score | Accuracy  |F1-score  | Accuracy | F1-score | 
 |25%| MSP      |43.67| 50.09 |47.02  | 47.62 | 28.67 | 37.85 | 
 || DOC      | 56.99 | 58.03 | 74.97 | 66.37 | 42.74 |47.73 | 
 || OpenMax  | 49.94 | 54.14 | 68.50 | 61.99 | 40.28 | 45.98|  
@@ -50,19 +60,21 @@ The model architecture of ADB:
 || DeepUnk |  78.52 | 84.31 | 83.71 | 86.23 | 72.33 | 78.28 | 
 || ADB  |  __81.08__ | __85.96__ | __86.32__ | __88.53__ | __82.78__ |__85.99__ | 
 
-### Ablation study
+*KIR means "Known Intent Ratio"
 
-| Ratio | | BANKING     |  | OOS      |  |  StackOverflow     |  |  
+#### Fine-grained Performance
+
+|  | | BANKING     |  | OOS      |  |  StackOverflow     |  |  
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|  | Methods | Open | Known | Open | Known | Open | Known | 
-|25%| MSP      |41.43| 50.55 |50.88  | 47.53 | 13.03 | 42.82 | 
+| KIR | Methods | Open | Known | Open | Known | Open | Known | 
+|| MSP      |41.43| 50.55 |50.88  | 47.53 | 13.03 | 42.82 | 
 || DOC      | 61.42 | 57.85 | 81.98 | 65.96 | 41.25 |49.02 | 
-|| OpenMax  | 51.32 | 54.28 | 75.76 | 61.62 | 36.41 | 47.89|  
+|25%| OpenMax  | 51.32 | 54.28 | 75.76 | 61.62 | 36.41 | 47.89|  
 || DeepUnk  | 70.44 | 60.88 | 87.33 | 70.73 | 49.29 | 52.60 | 
 || ADB     | __84.56__ | __70.94__ | __91.84__ | __76.80__ | __90.88__ |__78.82__|
-|50%| MSP | 41.19 | 71.97 | 57.62 | 70.58 | 23.99 | 66.91 | 
+|| MSP | 41.19 | 71.97 | 57.62 | 70.58 | 23.99 | 66.91 | 
 || DOC  | 55.14 | 73.59 | 79.00 | 78.25 | 25.44  | 66.58 | 
-|| OpenMax | 54.33 | 74.76 | 81.89 | 80.54 | 45.00 | 70.49 |
+|50%| OpenMax | 54.33 | 74.76 | 81.89 | 80.54 | 45.00 | 70.49 |
 || DeepUnk | 69.53 | 77.74 | 85.85 | 82.11 | 43.01 | 70.51 |
 || ADB | __78.44__ | __80.96__ | __88.65__ | __85.00__ | __87.34__ | __85.68__ |
 |75% | MSP | 39.23 | 84.36 | 59.08 | 82.59 | 33.96 | 80.88 |
@@ -71,7 +83,8 @@ The model architecture of ADB:
 || DeepUnk |  58.54 | 84.75 | 81.15 | 86.27 | 37.59 | 81.00 | 
 || ADB  |  __66.47__ | __86.29__ | __83.92__ | __88.58__ | __73.86__ |__86.80__ | 
 
-If you are instrested and want to use the codes in this work, please **star** this repository and **cite** by:
+
+If you are instrested in this work or want to use the codes, please **star** this repository and **cite** by:
 ```
 @inproceedings{zhang2020deep,
       title={Deep Open Intent Classification with Adaptive Decision Boundary}, 
@@ -81,4 +94,4 @@ If you are instrested and want to use the codes in this work, please **star** th
 }
 ```
 ### Acknowledgments
-This paper is founded by National Natural Science Foundation of China, etc. 
+This paper is founded by seed fund of Tsinghua University (Department of Computer Science and Technology)- Siemens Ltd., China Joint Research Center for Industrial Intelligence and Internet of Things.

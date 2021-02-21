@@ -20,10 +20,6 @@ from sklearn.metrics import confusion_matrix, f1_score, accuracy_score
 
 def debug(data, manager_p, manager, args):
 
-    # args_attrs = ["max_seq_length","feat_dim","warmup_proportion","freeze_bert_parameters","task_name",
-    #               "known_cls_ratio","labeled_ratio","method","seed","gpu_id","num_train_epochs","lr",
-    #               "train_batch_size","eval_batch_size","wait_patient","threshold"]
-
     print('-----------------Data--------------------')
     data_attrs = ["data_dir","n_known_cls","num_labels","all_label_list","known_label_list"]
 
@@ -83,9 +79,9 @@ def F_measure(cm):
     f_seen = np.mean(fs[:-1]).round(4)
     f_unseen = round(fs[-1], 4)
     result = {}
-    result['Seen'] = f_seen
-    result['Unseen'] = f_unseen
-    result['Overall'] = f
+    result['Known'] = f_seen
+    result['Open'] = f_unseen
+    result['F1-score'] = f
         
     return result
 
@@ -134,8 +130,7 @@ def draw(x, y):
     Y = tsne.fit_transform(x)
 
     # matplotlib_axes_logger.setLevel('ERROR')
-    labels = ['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','unknown']
-#     labels = ['wordpress','oracle','svn','apache','excel','matlab','visual-studio','cocoa','osx','bash','unknown']
+    labels = ['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','open']
     id_to_label = {i: label for i, label in enumerate(labels) }
     y_true = pd.Series(y)
     plt.style.use('ggplot')
@@ -153,15 +148,12 @@ def draw(x, y):
         x = Y[:, 0][ix]
         y = Y[:, 1][ix]
         ax.scatter(x, y, c=cmap(idx), label=id_to_label[label], alpha=0.5)
-    #     ax.scatter(x, y, c=np.random.rand(3,), label=label, s=100)
 
     # Shrink current axis by 20%
     ax.set_title('proto_loss')
     box = ax.get_position()
     ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
     ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-    # plt.savefig('output/tsne-CDAC+2.pdf', bbox_inches='tight')
-#     plt.show()
 
 def plot_curve(points):
     centers = [[] for x in range(len(points[0]))]
