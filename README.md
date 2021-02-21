@@ -7,19 +7,17 @@ This repository provides the official PyTorch implementation of the research pap
 
 ### Dependencies 
 
-We use anaconda to create python environment.
+We use anaconda to create python environment:
 ```
 conda create --name python=3.6
 ```
-Install all required library
+Install all required library:
 ```
 pip install -r requirements.txt
 ```
 
-### BERT Preparation
-Get the pre-trained [BERT](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip) model and convert it into [Pytorch](https://huggingface.co/transformers/converting_tensorflow_models.html).
-
-Set the path of the uncased-bert model (Hint: parameter "bert_model" in init_parameter.py)
+### Model Preparation
+First, get the pre-trained [BERT](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip) model and convert it into [Pytorch](https://huggingface.co/transformers/converting_tensorflow_models.html). Then, set the path of the uncased-bert model (Hint: parameter "bert_model" in init_parameter.py).
 
 ### Usage
 Run the experiments by: 
@@ -67,17 +65,17 @@ The model architecture of ADB:
 |  | | BANKING     |  | OOS      |  |  StackOverflow     |  |  
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 | KIR | Methods | Open | Known | Open | Known | Open | Known | 
-|| MSP      |41.43| 50.55 |50.88  | 47.53 | 13.03 | 42.82 | 
+|25%| MSP      |41.43| 50.55 |50.88  | 47.53 | 13.03 | 42.82 | 
 || DOC      | 61.42 | 57.85 | 81.98 | 65.96 | 41.25 |49.02 | 
-|25%| OpenMax  | 51.32 | 54.28 | 75.76 | 61.62 | 36.41 | 47.89|  
+|| OpenMax  | 51.32 | 54.28 | 75.76 | 61.62 | 36.41 | 47.89|  
 || DeepUnk  | 70.44 | 60.88 | 87.33 | 70.73 | 49.29 | 52.60 | 
 || ADB     | __84.56__ | __70.94__ | __91.84__ | __76.80__ | __90.88__ |__78.82__|
-|| MSP | 41.19 | 71.97 | 57.62 | 70.58 | 23.99 | 66.91 | 
+|50%| MSP | 41.19 | 71.97 | 57.62 | 70.58 | 23.99 | 66.91 | 
 || DOC  | 55.14 | 73.59 | 79.00 | 78.25 | 25.44  | 66.58 | 
-|50%| OpenMax | 54.33 | 74.76 | 81.89 | 80.54 | 45.00 | 70.49 |
+|| OpenMax | 54.33 | 74.76 | 81.89 | 80.54 | 45.00 | 70.49 |
 || DeepUnk | 69.53 | 77.74 | 85.85 | 82.11 | 43.01 | 70.51 |
 || ADB | __78.44__ | __80.96__ | __88.65__ | __85.00__ | __87.34__ | __85.68__ |
-|75% | MSP | 39.23 | 84.36 | 59.08 | 82.59 | 33.96 | 80.88 |
+|75%| MSP | 39.23 | 84.36 | 59.08 | 82.59 | 33.96 | 80.88 |
 || DOC | 50.60 | 83.91 | 72.87 | 83.69 | 16.76 | 78.95 |
 || OpenMax | 50.85 | 84.64 | 76.35 | 73.13 | 44.87 | 82.11 |
 || DeepUnk |  58.54 | 84.75 | 81.15 | 86.27 | 37.59 | 81.00 | 
