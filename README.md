@@ -58,7 +58,7 @@ The model architecture of ADB:
 || DeepUnk |  78.52 | 84.31 | 83.71 | 86.23 | 72.33 | 78.28 | 
 || ADB  |  __81.08__ | __85.96__ | __86.32__ | __88.53__ | __82.78__ |__85.99__ | 
 
-*KIR means "Known Intent Ratio"
+*KIR means "Known Intent Ratio".
 
 #### Fine-grained Performance
 
@@ -80,6 +80,8 @@ The model architecture of ADB:
 || OpenMax | 50.85 | 84.64 | 76.35 | 73.13 | 44.87 | 82.11 |
 || DeepUnk |  58.54 | 84.75 | 81.15 | 86.27 | 37.59 | 81.00 | 
 || ADB  |  __66.47__ | __86.29__ | __83.92__ | __88.58__ | __73.86__ |__86.80__ | 
+
+“Open” and “Known” denote the macro f1-score over open class and known classes respectively.
 
 
 If you are instrested in this work or want to use the codes, please **star** this repository and **cite** by:
