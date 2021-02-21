@@ -11,7 +11,7 @@ We use anaconda to create python environment:
 ```
 conda create --name python=3.6
 ```
-Install all required library:
+Install all required libraries:
 ```
 pip install -r requirements.txt
 ```
@@ -84,7 +84,7 @@ The model architecture of ADB:
 “Open” and “Known” denote the macro f1-score over open class and known classes respectively.
 
 
-If you are instrested in this work or want to use the codes, please **star** this repository and **cite** by:
+If you are instrested in this work or want to use the codes in this repository, please **star** this repository and **cite** by:
 ```
 @inproceedings{zhang2020deep,
       title={Deep Open Intent Classification with Adaptive Decision Boundary}, 
