@@ -3,8 +3,6 @@ import argparse
 def init_model():
     parser = argparse.ArgumentParser()
     
-    ################fixed parameters###########################
-    
     parser.add_argument("--data_dir", default='data', type=str,
                         help="The input data dir. Should contain the .csv files (or other data files) for the task.")
     

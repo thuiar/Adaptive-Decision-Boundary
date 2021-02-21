@@ -1,6 +1,5 @@
 from util import *
 
-
 class BertForModel(BertPreTrainedModel):
     def __init__(self,config,num_labels):
         super(BertForModel, self).__init__(config)

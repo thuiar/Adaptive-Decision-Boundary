@@ -97,7 +97,7 @@ def plot_confusion_matrix(cm, classes, save_name, normalize=False, title='Confus
     else:
         print('Confusion matrix, without normalization')
     plt.switch_backend('agg')
-    # Compute confusion matrix
+    
     np.set_printoptions(precision=2)
 
     plt.figure(figsize=figsize)
@@ -136,8 +136,6 @@ def draw(x, y):
     plt.style.use('ggplot')
     n_class = y_true.unique().shape[0]
     colors = ( 'gray','lightgreen', 'plum','DarkMagenta','SkyBlue','PaleTurquoise','DeepPink','Gold','Orange','Brown','DarkKhaki')
-
-    #cmap = plt.cm.get_cmap("tab20", n_class)
 
     fig, ax = plt.subplots(figsize=(9, 6), )
     la = [i for i in range(n_class)]
