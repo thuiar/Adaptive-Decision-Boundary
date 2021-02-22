@@ -219,6 +219,8 @@ if __name__ == '__main__':
     manager.evaluation(args, data, mode="test")  
     print('Evaluation finished!')
     
+    manager.save_results(args)
+
     # debug(data, manager_p, manager, args)
   
 
