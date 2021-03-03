@@ -5,9 +5,6 @@ from pretrain import *
 from util import *
 from loss import *
 
-TIMESTAMP = "{0:%Y-%m-%dT%H-%M-%S/}".format(datetime.now())
-train_log_dir = 'logs/train/' + TIMESTAMP
-test_log_dir = 'logs/test/'   + TIMESTAMP
 
 class ModelManager:
     
@@ -117,6 +114,9 @@ class ModelManager:
                     nb_tr_steps += 1
 
             self.delta_points.append(self.delta)
+            
+            # if epoch <= 20:
+            #     plot_curve(self.delta_points)
 
             loss = tr_loss / nb_tr_steps
             print('train_loss',loss)

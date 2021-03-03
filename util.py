@@ -154,6 +154,8 @@ def draw(x, y):
     ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
 def plot_curve(points):
+    plt.rcParams['pdf.fonttype'] = 42
+    plt.rcParams['ps.fonttype'] = 42
     centers = [[] for x in range(len(points[0]))]
     print('centers',centers)
     for clusters in points:
@@ -162,15 +164,17 @@ def plot_curve(points):
             centers[i].append(c)
     print('centers',centers)
     plt.figure()
-    markers = ['o', '*', 's', '^', 'x', 'd', 'D', '|', '_', '+', 'h', 'H', '.', ',', 'v', '<', '>', '1', '2', '3', '4', 'p']
+    plt.grid(alpha=0.4)
+    markers = ['o', '*', 's', '^', 'x', 'd', 'D', 'H', 'v', '>', 'h', 'H', 'v', '>', 'v', '<', '>', '1', '2', '3', '4', 'p']
     labels = ['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','unknown']
     
-    x = [i for i in range(len(centers[0]))]
+    x = np.arange(-0.02, len(centers[0]) + 0.01).astype(dtype=np.str)
     for i,y in enumerate(centers):
         plt.plot(x,y,label=labels[i], marker=markers[i])
-        
-    plt.xlabel('Epoch')
-    plt.ylabel('Decision Boundary $\Delta$')
+    
+    plt.xlim(0, 20, 1)
+    plt.xlabel('Epoch', fontsize=12)
+    plt.ylabel('Decision Boundary $\Delta$', fontsize=12)
     plt.legend()
     plt.title('50% Known Classes on StackOverflow')
     plt.show()
