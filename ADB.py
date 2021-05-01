@@ -85,12 +85,11 @@ class ModelManager:
         
         criterion_boundary = BoundaryLoss(num_labels = data.num_labels, feat_dim = args.feat_dim)
         self.delta = F.softplus(criterion_boundary.delta)
-        delta_last = copy.deepcopy(self.delta.detach())
         optimizer = torch.optim.Adam(criterion_boundary.parameters(), lr = args.lr_boundary)
         self.centroids = self.centroids_cal(args, data)
 
-        best_model = None
         wait = 0
+        best_delta, best_centroids = None, None
 
         for epoch in trange(int(args.num_train_epochs), desc="Epoch"):
             self.model.train()
@@ -125,15 +124,17 @@ class ModelManager:
             print('eval_score',eval_score)
             
             if eval_score >= self.best_eval_score:
-                best_model = copy.deepcopy(self.model)
                 wait = 0
                 self.best_eval_score = eval_score
+                best_delta = self.delta
+                best_centroids = self.centroids
             else:
                 wait += 1
                 if wait >= args.wait_patient:
                     break
         
-        self.model = best_model 
+        self.delta = best_delta
+        self.centroids = best_centroids
 
     def class_count(self, labels):
         class_data_num = []
@@ -179,7 +180,7 @@ class ModelManager:
         np.save(os.path.join(args.save_results_path, 'centroids.npy'), self.centroids.detach().cpu().numpy())
         np.save(os.path.join(args.save_results_path, 'deltas.npy'), self.delta.detach().cpu().numpy())
 
-        file_name = 'results'  + '.csv'
+        file_name = 'results.csv'
         results_path = os.path.join(args.save_results_path, file_name)
         
         if not os.path.exists(results_path):
@@ -218,8 +219,6 @@ if __name__ == '__main__':
     print('Evaluation begin...')
     manager.evaluation(args, data, mode="test")  
     print('Evaluation finished!')
-    
-    manager.save_results(args)
 
     # debug(data, manager_p, manager, args)
   
