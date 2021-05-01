@@ -88,11 +88,11 @@ The model architecture of ADB:
 
 If you are insterested in this work or want to use the codes in this repository, please **star** this repository and **cite** by:
 ```
-@inproceedings{zhang2020deep,
+@article{zhang2021deep,
       title={Deep Open Intent Classification with Adaptive Decision Boundary}, 
       author={Hanlei Zhang and Hua Xu and Ting-En Lin},
-      booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
       year={2021},
+      journal={arXiv preprint arXiv:2012.10209},
 }
 ```
 ### Acknowledgments
