@@ -39,6 +39,9 @@ The model architecture of ADB:
 
 
 ###  Results
+
+The detailed results can be seen in results/detailed_results.md
+
 #### Overall Performance
 
 | | | BANKING     |  | OOS      |  |  StackOverflow     |  |  
