@@ -40,7 +40,7 @@ The model architecture of ADB:
 
 ###  Results
 
-The detailed results can be seen in [results.md](results/detailed_results.md)
+The detailed results can be seen in [results.md](results/results.md)
 
 #### Overall Performance
 
