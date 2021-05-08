@@ -89,7 +89,7 @@ The detailed results can be seen in [results.md](results/results.md).
 “Open” and “Known” denote the macro f1-score over open class and known classes respectively.
 
 
-If you are insterested in this work or want to use the codes in this repository, please **star** this repository and **cite** by:
+If you are insterested in this work, and want to use the codes or results in this repository, please **star** this repository and **cite** by:
 ```
 @article{zhang2021deep,
       title={Deep Open Intent Classification with Adaptive Decision Boundary}, 
