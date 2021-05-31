@@ -91,11 +91,15 @@ The detailed results can be seen in [results.md](results/results.md).
 
 If you are insterested in this work, and want to use the codes or results in this repository, please **star** this repository and **cite** by:
 ```
-@article{zhang2021deep,
+@article{Zhang_Xu_Lin_2021, 
       title={Deep Open Intent Classification with Adaptive Decision Boundary}, 
-      author={Hanlei Zhang and Hua Xu and Ting-En Lin},
-      year={2021},
-      journal={arXiv preprint arXiv:2012.10209},
+      volume={35}, 
+      number={16}, 
+      journal={Proceedings of the AAAI Conference on Artificial Intelligence}, 
+      author={Zhang, Hanlei and Xu, Hua and Lin, Ting-En}, 
+      year={2021}, 
+      month={May}, 
+      pages={14374-14382} 
 }
 ```
 ### Acknowledgments
