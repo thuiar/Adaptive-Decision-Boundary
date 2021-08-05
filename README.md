@@ -2,6 +2,8 @@
 
 A method to automatically learn the adaptive decision boundary (ADB) for open world classification.
 
+**The proposed method together with baselines are also integrated into the [open intent discovery](https://github.com/thuiar/TEXTOIR/tree/main/open_intent_discovery) module in our another scalable framework [TEXTOIR](https://github.com/thuiar/TEXTOIR), enjoy it!**
+
 ### Introduction
 This repository provides the official PyTorch implementation of the research paper [Deep Open Intent Classification with Adaptive Decision Boundary](https://arxiv.org/pdf/2012.10209.pdf) (**Accepted by [AAAI2021](https://aaai.org/Conferences/AAAI-21/)**).
 
