@@ -7,6 +7,8 @@ A method to automatically learn the adaptive decision boundary (ADB) for open wo
 ### Introduction
 This repository provides the official PyTorch implementation of the research paper [Deep Open Intent Classification with Adaptive Decision Boundary](https://arxiv.org/pdf/2012.10209.pdf) (**Accepted by [AAAI2021](https://aaai.org/Conferences/AAAI-21/)**).
 
+Related works can refer to the [reading list](https://github.com/thuiar/OKD-Reading-List).
+
 ### Dependencies 
 
 We use anaconda to create python environment:
