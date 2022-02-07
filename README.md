@@ -21,7 +21,11 @@ pip install -r requirements.txt
 ```
 
 ### Model Preparation
-Get the pre-trained [BERT](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip) model and convert it into [Pytorch](https://huggingface.co/transformers/converting_tensorflow_models.html). 
+
+Download the pre-trained bert model (bert-base-uncased) from the following link:  
+[Baidu Cloud Drive](https://pan.baidu.com/s/1k1zxK4xh0UyPhOU_-oPlow) with code: v8tk
+
+(You can also get the pre-trained [BERT](https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip) model and convert it into [Pytorch](https://huggingface.co/transformers/converting_tensorflow_models.html).  
 
 Set the path of the uncased-bert model (parameter "bert_model" in init_parameter.py).
 
